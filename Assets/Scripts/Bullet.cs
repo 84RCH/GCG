@@ -8,13 +8,19 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        GameObject goal = GameObject.Find("Goal");
+        Vector3 goalPosition = goal.transform.position;
+        //goalPosition.z = -1;
+
         transform.Translate(Vector3.up * speed * Time.deltaTime);
+        if ((transform.position.x == goalPosition.x)
+            && (transform.position.y == goalPosition.y))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject); // âÊñ äOÇ…èoÇΩíeÇçÌèú
-    }
+
 
 
 }
