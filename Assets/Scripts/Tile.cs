@@ -22,8 +22,8 @@ public class Tile : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!GameObject.Find("Start")) 
-            { 
+            if (!GameObject.Find("Start"))
+            {
                 GameObject player = GameObject.Find("Player");
                 if ((player.transform.position.x == transform.position.x)
                     && (player.transform.position.y == transform.position.y))
@@ -33,8 +33,6 @@ public class Tile : MonoBehaviour
             }
         }
     }
-
-
     void OnMouseEnter()
     {
         m_Active.SetActive(true);
@@ -44,12 +42,10 @@ public class Tile : MonoBehaviour
     {
         m_Active.SetActive(false);
     }
-
     void OnMouseDown()
     {
-        if(!GameObject.Find("Goal"))
-        m_Goal.SetActive(true);
+        if (!GameObject.Find("Goal"))
+            m_Goal.SetActive(true);
     }
-
 
 }

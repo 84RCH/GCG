@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         MovePlayer();
 
         //mouse Left Button
-        if (Time.time >= nextFireTime)
+        if (Input.GetMouseButton(0))
         {
             Shoot();
             nextFireTime = Time.time+fireRate;//setting Next FireRate
@@ -72,16 +72,6 @@ public class Player : MonoBehaviour
         Vector3 direction = (goalPosition - startPosition).normalized;
 
 
-        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
-        //mousePosition.z = 0;
-
-
-        //// get mouse pos
-        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //mousePosition.z = 0;
-
-        //// mouse direction
-        //Vector3 direction = (mousePosition - transform.position).normalized;
 
         // generate bullet
         GameObject bullet = Instantiate(bulletPrefab, startPosition, Quaternion.identity);
@@ -104,6 +94,7 @@ public class Player : MonoBehaviour
             float distance = Vector3.Distance(startPosition, goalPosition);
 
             // trail Point
+            // trail Point
             for (int i = 0; i < lineSegmentCount; i++)
             {
                 float t = i / (float)(lineSegmentCount - 1);
@@ -111,23 +102,5 @@ public class Player : MonoBehaviour
                 lineRenderer.SetPosition(i, point);
             }
         }
-
-        //// et mouse pos
-        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //mousePosition.z = 0;
-
-        //// mouse direction
-        //Vector3 direction = (mousePosition - transform.position).normalized;
-
-        ////distance
-        //float distance = Vector3.Distance(transform.position, mousePosition);
-
-        //// trail Point
-        //for (int i = 0; i < lineSegmentCount; i++)
-        //{
-        //    float t = i / (float)(lineSegmentCount - 1);
-        //    Vector3 point = (Vector3)transform.position + direction * t * distance;
-        //    lineRenderer.SetPosition(i, point);
-        //}
     }
 }
